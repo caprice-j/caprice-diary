@@ -1,0 +1,105 @@
+---
+author: "Yasutaka Tanaka"
+categories: []
+date: 2017-01-07T17:07:24-05:00
+description: ""
+featured: ""
+featuredalt: ""
+featuredpath: ""
+linktitle: ""
+title: "The Very First Story of ggbash"
+---
+
+<!--
+blogdown::install_theme('crakjie/hugo-base-theme');
+blogdown::install_theme('jpescador/hugo-future-imperfect')
+blogdown::install_theme('jrutheiser/hugo-lithium-theme')
+blogdown::install_theme('tmaiaroto/hugo-redlounge')
+-->
+
+## A Star Which Changed the World
+
+For this entire week, I worked on my personal project called [ggbash](https://github.com/caprice-j/ggbash). It is a library for drawing graphs or figures in R language in a much simpler way. 
+
+I first tweeted about the library last week (Dec. 29th) on my private twitter account. All followers are my friends or acquaintances, and it would be a good review of what I did and would like to do in the project.
+
+After posting a few tweets, I found out that the ggbash project on Github earned a star before I knew it. Did I press the button by mistake? If not, who pressed the button? Who gave a star for a software that cannot be executed on her machine? At that time there was a [README](https://github.com/caprice-j/ggbash/tree/e569eed4631a2ded1ec16653c4d856e9147bbb76) for the library features but no document about installation.
+
+It turned out that the star was from my friend, Spinute. He was an internship student of [Google Summer of Code 2016](https://summerofcode.withgoogle.com/archive/2016/projects/5201565367402496/) -- in which he implemented an optimized version of Ruby data structures called [Rope](https://github.com/spinute/CRope). He has a strong interests in language designs, and we are friends for a long time.
+
+He is very frindly with me, friendly enough to frankly criticize my past projects without jeopardizing our friendship (I like it). And actually he criticized **all of my past projects**.
+
+Looking back the past, I usually worked on "too-personal" projects, in which anyone in the world cannot find value: a brand-new typing software where users can learn any arbitrary keyboard layout (too general goals), a variant of Go board-game with a few eccentric additional rules (which few test players regarded fun), or a translated document website of super minor network softwares. His comments were fair. I enjoyed programming them, but simply saying they did not help others. I usually felt that if I could convince him my project is great, that means something substantial for me as a programmer.
+
+And he now gave me a github star for such an early-stage product.
+It was a real bolt from the blue.
+
+One more strange thing was that ggbash is a library for R, which is a language he (probably) never used before. I became curious about his action and asked him why he gave me a star for a library which he would probably never use later in his life.
+
+His answer was to his eyes ggbash is alike to [pry project](https://github.com/pry/pry). pry is an enhanced version of Ruby interpreter (irb) and has highly sophisticated features for making Ruby programming more confortable. Now pry has earned more than 4,500 github stars. He told me that ggbash looked interesting from a design perspective, especially in terms of namespace handling and states for queries, and that was the reason of his star.
+
+I was surprised by that answer because in the past project, however hard I tried convincing him to play my games, he plainly said that he didn't think the games are interesting. Now he voluntarily said my project is interesting. I felt like I finally got over a long-standing barrier in front of me, and thought I should take this ggbash project a little more seriously.
+
+## Stars from Unseen Developers
+
+So, one of the non-R programmers considered ggbash is interesting.
+How about actual R programmers? What kind of impression will they have for ggbash?
+
+I opened [my public account](https://twitter.com/yas_tnk) and tweeted about ggbash with \#rstats hashtag, which is a [recommended](http://r-pkgs.had.co.nz/release.html#promotion) way to tell R users a new package arrival.
+
+It cannot be too emphisized that this project is just one-week-old and it does not take more than 2 minutes for any users to find a show-stopper. However, surprisingly enough it already earned [16 github stars](https://github.com/caprice-j/ggbash/stargazers) in a day.
+Although three of the stars are "questionable" stars from my friends (they might be from their kindness), I didn't know any of the other 13 programmers. They simply seemed to press the button seeing something on the ggbash repository. And this is the first time that I won a form of approval for my project from other unseen programmers.
+
+This might be a small thing for famous, talented programmers who can earn 500 stars constantly, but for me, **this is the first time that the problem I tried to solve is actually matched with the problem that other programmers also want to solve**. It is a revolutionary match in my life.
+
+## Looking Back: Backgrounds of Epiphany
+
+This is perhaps my first (small) success in open-source developement, and here I would like to organize my understanding about what led me to this meaningful match.
+
+I recognized four factors as essential:
+
+1. **Experience:** wrote an original shell before
+2. **Unpleasantness:** spent tens of hours of plotting graphs in R language
+3. **Direction: ** keep the prerequisite of problems to solve in mind
+4. **Long holidays:** so long that you can start anything if it came up
+
+#### 1. Experience for a Specific Type of Software
+
+I wrote a simple shell program in C as my homework in the previous semester. The shell has nothing new in its functionarities, but writing it gave me feelings that writing shell is not so hard and have a lot of room to improve. At the time I never thought of possibility of shells in R. I just felt that shell is one of the options that I would implement someday somewhere if I feel like.
+
+One thing to note here is that although I took a class of formal language theory when I was an undergrad, that experience didn't directly contribute to the idea of a shell for R. It is true that the framework I learnt in the class was super helpful when I refactored my shell (ggbash v0.1) by [lex and yacc](https://github.com/systemincloud/rly) (ggbash v0.2) following my friend's advice, but for some reason I feel the cursory a-few-hour knowledge about shell was more helpful for the very first idea.
+
+#### 2. Repetitive Unpleasantness in Daily Tasks
+
+The past four months I spent plotting hundreds or even thousands of R graphs by ggplot2. Gradually I remembered most of ggplot2 grammars and tried to find faster ways to do the same thing such as skipping `x=` and `y=` argument names by positional information or defining shorter version of functions like `p <- geom_point`. But the latter approach significantly contaminates global namespace and ends up name conflicts (like `p` by `geom_point` and `geom_polygon`). The other approache I tried is to make a big wrapper function for repetitive plottings, but that was too inflexible and I had to care a lot about how R processes plots internally. Simply saying, I have an annoying problem to solve as a programmer in front of me.
+
+
+#### 3. Directions from an Expert
+
+During the previous semester, I had a lucky opportunity to attend a lecture meeting of a famous R package developer, Hadley Wickham. Before that lecture I vaguely thought that I can use my coming holidays for writing my first R package, but I had no idea what is a good package to write. So I just asked him that how he discovered the ideas of each package he previously wrote. He is well known as a prolific R package writer, and most of his packages are widely used as de facto standard packages in R workflow. The success rate of his packages is remarkable -- I conjectured that there is some secret "sauce" for making a great package.
+
+But the advice he gave me was a very simple one. He advised to solve a "real" problem. He recommended conversation with other R programmers, and in it I would find some constantly-appearing issues in the current R toolsets.
+
+Unfortunately, I haven't had an opportunity to talk with other R programmers about what are their issues. But since I did two data analysis project in the past four months and accumulated enough frustrations about the current R toolsets, I managed to find a right problem to solve. 20 github stars would probably be a small sign for its rightness.
+
+#### 4. Long holidays
+
+I was amazed that holidays in America are such long. That is in stark constrast to the hectic schedule during semesters, and I have tons of time to do what I feel like doing.
+
+I just spent my first several days for just relaxing or simply enjoying doing nothing. Looking back that turned out to be _productively unproductive_, I could say.
+The day I had an epiphany about the ggbash project was December 28th, 2016, 11 pm at my home. That day I visited a museum called [MoMA](https://www.moma.org/) with my friends, strolled around all floors by more than 15,000 steps, had a good Cuban dinner, chatted about how each other spent holidays. I remember that day involves no programming stuff. I just wondered in a totally free way.
+
+Actualy in the previous day I plotted a lot of GIS data using ggplot2 and felt as usual unsatisfied with my makeshift wrapper/shortcut functions. Unfortunately the result of the exploratory data analysis was also fruitless. So I clearly recognized that the previous day was a bad day. It is a surprise that a revolutionary day follows such a bad day.
+
+## What mattered?
+
+So the timeline of ggbash advent was, hectic school days involving shell programming and data visualization, advice from an expert, unusually long holidays, a bad programming day, and a no-programming day. Then the moment. I believe the reason that I, a developer who couldn't find the right software problem to solve, succeeded to find a good problem to solve is I went through a great combination of them in a very miraculous order. 
+
+In addition to the order, the contents were also important. The shell programming had nothing to do with R programming (because it's a class of C language), but ended up in contributing something for R community. I feel like I'm borrowing some ideas in other languages and remake them for R.
+
+## Conclusion
+
+
+
+
+ggbash is hosted on <http://github.com/caprice-j/ggbash> and is still its infancy.
