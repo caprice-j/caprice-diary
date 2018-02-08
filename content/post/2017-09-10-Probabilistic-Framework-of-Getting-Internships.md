@@ -7,7 +7,7 @@ title: "Probabilistic View of Software-Engineer Job Market"
 
 ## Background
 
-I like probability and statistics in that they are useful for organizing thoughts and details. This blog post is an attempt to use those mathmatical frameworks to understand complex things surrounding us like US software-engineer job market.
+I like probability and statistics in that they are useful for organizing thoughts and details. This blog post is an attempt to use those mathematical frameworks to understand complicated things surrounding us like US software-engineer job market.
 
 
 ## Why job market?
